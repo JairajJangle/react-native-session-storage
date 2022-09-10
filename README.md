@@ -55,7 +55,7 @@ SessionStorage.removeItem('@storage_key');
 
 ### Clearing all keys
 
-```
+```typescript
 SessionStorage.clear();
 ```
 
