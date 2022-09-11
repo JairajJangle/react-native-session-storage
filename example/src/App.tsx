@@ -4,7 +4,8 @@ import {
   View,
   Text,
   TextInput,
-  Button
+  Button,
+  SafeAreaView
 } from 'react-native';
 import SessionStorage from 'react-native-session-storage';
 
@@ -24,7 +25,7 @@ export default function App() {
   }
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Text
         style={styles.title}>Input Value to Store</Text>
       <TextInput
@@ -40,15 +41,15 @@ export default function App() {
 
       <View style={styles.bigPadding} />
 
-      <Button
-        title='Get'
-        onPress={getVal} />
+      <Text style={styles.title}>Stored Val:</Text>
+      <Text style={styles.message}>{storedVal}</Text>
 
       <View style={styles.padding} />
 
-      <Text style={styles.title}>Stored Val:</Text>
-      <Text style={styles.message}>{storedVal}</Text>
-    </View>
+      <Button
+        title='Get'
+        onPress={getVal} />
+    </SafeAreaView>
   );
 }
 
@@ -56,7 +57,7 @@ const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
     justifyContent: 'center',
-    padding: 20
+    margin: 20
   },
   title: {
     alignSelf: "flex-start",
@@ -65,15 +66,27 @@ const styles = StyleSheet.create({
   message: {
     alignSelf: "flex-start",
     fontSize: 16,
+
+    borderColor: "grey",
+    borderWidth: 1,
+
+    padding: 5,
+    width: "100%"
   },
   textInput: {
     backgroundColor: "white",
-    width: "100%"
+    fontSize: 16,
+    width: "100%",
+
+    borderColor: "grey",
+    borderWidth: 1,
+
+    padding: 5
   },
   padding: {
-    padding: 5,
+    padding: 4,
   },
   bigPadding: {
-    padding: 30,
+    padding: 20,
   }
 });
