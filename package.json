@@ -36,7 +36,10 @@
     "ios",
     "android"
   ],
-  "repository": "https://github.com/JairajJangle/react-native-session-storage",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JairajJangle/react-native-session-storage.git"
+  },
   "author": "Jairaj Jangle <jairaj.jangle@gmail.com> (https://github.com/JairajJangle)",
   "license": "MIT",
   "bugs": {
