@@ -14,14 +14,14 @@
     "preset": "jest-expo"
   },
   "dependencies": {
-    "expo": "~52.0.5",
-    "expo-linking": "~7.0.0",
-    "expo-router": "~4.0.18",
-    "expo-splash-screen": "~0.28.0",
+    "expo": "~51.0.39",
+    "expo-linking": "~6.3.1",
+    "expo-router": "~3.5.24",
+    "expo-splash-screen": "~0.27.7",
     "expo-status-bar": "~1.12.1",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "react-native": "0.76.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "react-native": "0.75.5",
     "react-native-safe-area-context": "4.10.9",
     "react-native-session-storage": "../src",
     "react-native-web": "~0.19.10"
