@@ -1,6 +1,6 @@
 module.exports = {
   branches: [
-    "main",
+    "master",
     {
       name: "beta",
       prerelease: true // Marks this as a prerelease channel

@@ -2,10 +2,10 @@ name: CI
 on:
   push:
     branches:
-      - main
+      - master
   pull_request:
     branches:
-      - main
+      - master
 
 jobs:
   lint:
@@ -80,7 +80,7 @@ jobs:
       issues: write # To comment on released issues
       pull-requests: write # To comment on released pull requests
       id-token: write # To enable use of OIDC for npm provenance
-    if: github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/master'
     steps:
       - name: Checkout
         uses: actions/checkout@v4

@@ -39,10 +39,11 @@
     "type": "git",
     "url": "git+https://github.com/JairajJangle/react-native-session-storage.git"
   },
-  "author": "Jairaj Jangle <jairaj.jangle@gmail.com> (https://github.com/JairajJangle)",
+  "author": "Jairaj Jangle <reachout.jairaj.jangle@gmail.com> (https://github.com/JairajJangle)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/JairajJangle/react-native-session-storage/issues"
+    "url": "https://github.com/JairajJangle/react-native-session-storage/issues",
+    "email": "reachout.jairaj.jangle@gmail.com"
   },
   "homepage": "https://github.com/JairajJangle/react-native-session-storage#readme",
   "publishConfig": {
