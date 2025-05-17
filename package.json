@@ -71,6 +71,17 @@
       "@commitlint/config-conventional"
     ]
   },
+  "jest": {
+    "modulePathIgnorePatterns": [
+      "<rootDir>/example/node_modules",
+      "<rootDir>/lib/"
+    ],
+    "collectCoverage": true,
+    "coverageReporters": [
+      "json",
+      "html"
+    ]
+  },
   "release-it": {
     "git": {
       "commitMessage": "chore: release ${version}",
