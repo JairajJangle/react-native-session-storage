@@ -299,3 +299,185 @@ describe("Enhanced Storage APIs", function () {
     expect(retrieved.level1.level2.level3.array[2].deep).toBe("item");
   });
 });
+
+describe("Deep Merge Functionality", function () {
+  beforeEach(() => {
+    SessionStorage.clear();
+  });
+
+  it("merges nested objects correctly", function () {
+    SessionStorage.setItem("user", {
+      profile: {
+        name: "John",
+        settings: {
+          theme: "dark",
+          notifications: true
+        }
+      },
+      stats: {
+        visits: 10
+      }
+    });
+
+    const result = SessionStorage.mergeItem("user", {
+      profile: {
+        settings: {
+          notifications: false,
+          language: "en"
+        }
+      },
+      stats: {
+        lastLogin: "2025-05-17"
+      }
+    });
+
+    // Check the merged result
+    expect(result).toEqual({
+      profile: {
+        name: "John",
+        settings: {
+          theme: "dark",
+          notifications: false,
+          language: "en"
+        }
+      },
+      stats: {
+        visits: 10,
+        lastLogin: "2025-05-17"
+      }
+    });
+
+    // Verify that the stored value is updated
+    expect(SessionStorage.getItem("user")).toEqual(result);
+  });
+
+  it("does not mutate the original objects during merge", function () {
+    const original = {
+      a: {
+        b: {
+          c: 1
+        }
+      }
+    };
+
+    SessionStorage.setItem("original", original);
+
+    // Create a deep copy to verify original is not mutated
+    const originalCopy = JSON.parse(JSON.stringify(original));
+
+    SessionStorage.mergeItem("original", {
+      a: {
+        b: {
+          d: 2
+        }
+      }
+    });
+
+    // Original object should not be changed
+    expect(original).toEqual(originalCopy);
+
+    // But the stored value should be updated
+    expect(SessionStorage.getItem("original")).toEqual({
+      a: {
+        b: {
+          c: 1,
+          d: 2
+        }
+      }
+    });
+  });
+
+  it("handles arrays as non-mergeable leaf values", function () {
+    SessionStorage.setItem("data", {
+      items: [1, 2, 3],
+      config: { active: true }
+    });
+
+    const result = SessionStorage.mergeItem("data", {
+      items: [4, 5],
+      config: { count: 2 }
+    });
+
+    // Arrays should be replaced, not merged
+    expect(result).toEqual({
+      items: [4, 5],
+      config: { active: true, count: 2 }
+    });
+  });
+
+  it("handles null values correctly", function () {
+    SessionStorage.setItem("nullTest", {
+      a: { b: 1 },
+      c: null,
+      d: { e: "value" }
+    });
+
+    const result = SessionStorage.mergeItem("nullTest", {
+      a: null,
+      c: { newValue: true },
+      d: { f: "another value" }
+    });
+
+    // null should replace objects and vice versa
+    expect(result).toEqual({
+      a: null,
+      c: { newValue: true },
+      d: { e: "value", f: "another value" }
+    });
+  });
+
+  it("properly merges multiple nested objects in one operation", function () {
+    // Set up initial complex objects
+    SessionStorage.multiSet({
+      "obj1": {
+        level1: {
+          a: 1,
+          nested: { x: 10, y: 20 }
+        }
+      },
+      "obj2": {
+        settings: {
+          display: { color: "blue" },
+          audio: { volume: 80 }
+        }
+      }
+    });
+
+    // Perform multi-merge
+    const results = SessionStorage.multiMerge({
+      "obj1": {
+        level1: {
+          b: 2,
+          nested: { y: 30, z: 40 }
+        }
+      },
+      "obj2": {
+        settings: {
+          display: { brightness: 75 },
+          network: { enabled: true }
+        }
+      }
+    });
+
+    // Verify results
+    expect(results.obj1).toEqual({
+      level1: {
+        a: 1,
+        b: 2,
+        nested: { x: 10, y: 30, z: 40 }
+      }
+    });
+
+    expect(results.obj2).toEqual({
+      settings: {
+        display: { color: "blue", brightness: 75 },
+        audio: { volume: 80 },
+        network: { enabled: true }
+      }
+    });
+
+    // Verify storage was updated
+    expect(SessionStorage.getItem("obj1")).toEqual(results.obj1);
+    expect(SessionStorage.getItem("obj2")).toEqual(results.obj2);
+  });
+});

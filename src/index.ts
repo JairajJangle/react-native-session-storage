@@ -12,12 +12,7 @@ export class Storage<T = unknown> {
    */
   public key(n: number): string | undefined {
     if (n < 0 || n >= this.data.size) return undefined;
-    let i = 0;
-    for (const key of this.data.keys()) {
-      if (i === n) return key;
-      i++;
-    }
-    return undefined;
+    return Array.from(this.data.keys())[n];
   }
 
   /**
@@ -96,7 +91,9 @@ export class Storage<T = unknown> {
         if (typeof key !== "string") {
           throw new TypeError("Each key must be a string");
         }
-        this.data.set(key, value);
+        if (value !== undefined) {
+          this.data.set(key, value);
+        }
       }
     } else {
       for (const key in keyValuePairs) {
@@ -109,6 +106,38 @@ export class Storage<T = unknown> {
         }
       }
     }
+  }
+
+  private deepMerge(
+    target: Record<string, unknown>,
+    source: Record<string, unknown>
+  ): Record<string, unknown> {
+    // Create a copy of the target
+    const result = { ...target };
+
+    // Process each property in the source
+    for (const key in source) {
+      const sourceValue = source[key];
+      const targetValue = result[key];
+
+      // More explicit checks for object types (excludes null and arrays)
+      if (
+        key in result &&
+        targetValue !== null &&
+        typeof targetValue === 'object' && !Array.isArray(targetValue) &&
+        sourceValue !== null &&
+        typeof sourceValue === 'object' && !Array.isArray(sourceValue)
+      ) {
+        result[key] = this.deepMerge(
+          targetValue as Record<string, unknown>,
+          sourceValue as Record<string, unknown>
+        );
+      } else {
+        result[key] = sourceValue;
+      }
+    }
+
+    return result;
   }
 
   /**
@@ -124,10 +153,15 @@ export class Storage<T = unknown> {
     if (typeof key !== "string") {
       throw new TypeError("Key must be a string");
     }
+
+    if (value === null || typeof value !== "object" || Array.isArray(value)) {
+      throw new TypeError("Value must be a non-array object for merging");
+    }
+
     const existing = this.data.get(key);
 
     if (existing && typeof existing === "object" && !Array.isArray(existing)) {
-      const merged = { ...existing, ...value };
+      const merged = this.deepMerge(existing as Record<string, unknown>, value);
       this.data.set(key, merged as T);
       return merged;
     } else if (!existing) {
@@ -204,7 +238,7 @@ export class Storage<T = unknown> {
    */
   public clear(): void {
     this.data.clear();
-  }
+  };
 
   /**
    * Get all keys
