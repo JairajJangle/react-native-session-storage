@@ -13,9 +13,7 @@ import { Ionicons, Entypo } from "@expo/vector-icons";
 import { safeJSONParse } from "./helper";
 import { StatusBar } from "expo-status-bar";
 import {
-  SafeAreaProvider,
-  SafeAreaView,
-  useSafeAreaInsets,
+  SafeAreaView
 } from "react-native-safe-area-context";
 import styles from "./styles";
 
@@ -36,8 +34,6 @@ export default function App(): React.JSX.Element {
     initialOutput
   );
   const [allItems, setAllItems] = useState<StorageItem[]>([]);
-
-  const { top } = useSafeAreaInsets();
 
   // Load items on first render
   useEffect(() => {
@@ -322,155 +318,152 @@ export default function App(): React.JSX.Element {
     <View
       style={{
         ...styles.parent,
-        marginTop: -top,
       }}
     >
       <StatusBar translucent backgroundColor="#3d527f" style="light" />
-      <SafeAreaProvider>
-        <SafeAreaView style={styles.safeArea} edges={["top", "left", "right"]}>
-          <Text style={styles.header}>SessionStorage Demo</Text>
+      <SafeAreaView style={styles.safeArea} edges={["top", "left", "right"]}>
+        <Text style={styles.header}>SessionStorage Demo</Text>
 
-          <LinearGradient
-            colors={["#4c669f", "#3b5998", "#192f6a"]}
-            style={styles.container}
-          >
-            <ScrollView contentContainerStyle={styles.scrollContent}>
-              <View style={styles.section}>
-                <Text style={styles.sectionTitle}>Input</Text>
-                <TextInput
-                  style={styles.input}
-                  placeholder="Enter key (or comma-separated keys for multiGet)"
-                  placeholderTextColor="#888"
-                  defaultValue={inputKey}
-                  onChangeText={setInputKey}
-                  maxLength={100}
-                  keyboardType="ascii-capable"
-                />
-                <TextInput
-                  style={[styles.input, styles.inputValue]}
-                  placeholder="Enter value (string, JSON object, or comma-separated keys for multiRemove)"
-                  placeholderTextColor="#888"
-                  defaultValue={inputValue}
-                  onChangeText={setInputValue}
-                  multiline
-                  maxLength={1000}
-                  keyboardType="ascii-capable"
-                />
-              </View>
+        <LinearGradient
+          colors={["#4c669f", "#3b5998", "#192f6a"]}
+          style={styles.container}
+        >
+          <ScrollView contentContainerStyle={styles.scrollContent}>
+            <View style={styles.section}>
+              <Text style={styles.sectionTitle}>Input</Text>
+              <TextInput
+                style={styles.input}
+                placeholder="Enter key (or comma-separated keys for multiGet)"
+                placeholderTextColor="#888"
+                defaultValue={inputKey}
+                onChangeText={setInputKey}
+                maxLength={100}
+                keyboardType="ascii-capable"
+              />
+              <TextInput
+                style={[styles.input, styles.inputValue]}
+                placeholder="Enter value (string, JSON object, or comma-separated keys for multiRemove)"
+                placeholderTextColor="#888"
+                defaultValue={inputValue}
+                onChangeText={setInputValue}
+                multiline
+                maxLength={1000}
+                keyboardType="ascii-capable"
+              />
+            </View>
 
-              <View style={styles.section}>
-                <Text style={styles.sectionTitle}>Basic Operations</Text>
-                <View style={styles.buttonRow}>
-                  <OperationButton
-                    title="Set Item"
-                    icon="save"
-                    onPress={handleSetItem}
-                  />
-                  <OperationButton
-                    title="Get Item"
-                    icon="search"
-                    onPress={handleGetItem}
-                  />
-                  <OperationButton
-                    title="Remove Item"
-                    icon="trash"
-                    onPress={handleRemoveItem}
-                  />
-                </View>
-                <View style={styles.buttonRow}>
-                  <OperationButton
-                    title="Clear"
-                    icon="close-circle"
-                    onPress={handleClear}
-                  />
-                  <OperationButton
-                    title="Get Key"
-                    icon="key"
-                    onPress={handleGetKey}
-                  />
-                  <OperationButton
-                    title="Length"
-                    icon="list"
-                    onPress={handleGetLength}
-                  />
-                </View>
-              </View>
-
-              <View style={styles.section}>
-                <Text style={styles.sectionTitle}>Enhanced Operations</Text>
-                <View style={styles.buttonRow}>
-                  <OperationButton
-                    title="Multi Get"
-                    icon="download"
-                    onPress={handleMultiGet}
-                  />
-                  <OperationButton
-                    title="Get All Items"
-                    icon="archive"
-                    onPress={handleGetAllItems}
-                  />
-                  <OperationButton
-                    title="Multi Set"
-                    icon="cloud-upload"
-                    onPress={handleMultiSet}
-                  />
-                </View>
-                <View style={styles.buttonRow}>
-                  <OperationButton
-                    title="Merge Item"
-                    icon="git-merge"
-                    onPress={handleMergeItem}
-                  />
-                  <OperationButton
-                    title="Multi Merge"
-                    icon="git-network"
-                    fam="Ionicons"
-                    onPress={handleMultiMerge}
-                  />
-                  <OperationButton
-                    title="Multi Remove"
-                    icon="trash-bin"
-                    onPress={handleMultiRemove}
-                  />
-                </View>
+            <View style={styles.section}>
+              <Text style={styles.sectionTitle}>Basic Operations</Text>
+              <View style={styles.buttonRow}>
                 <OperationButton
-                  title="Get All Keys"
-                  icon="key-outline"
-                  onPress={handleGetAllKeys}
+                  title="Set Item"
+                  icon="save"
+                  onPress={handleSetItem}
+                />
+                <OperationButton
+                  title="Get Item"
+                  icon="search"
+                  onPress={handleGetItem}
+                />
+                <OperationButton
+                  title="Remove Item"
+                  icon="trash"
+                  onPress={handleRemoveItem}
                 />
               </View>
-
-              <View style={styles.section}>
-                <Text style={styles.sectionTitle}>Output</Text>
-                <Text
-                  style={[
-                    styles.output,
-                    output?.success ? styles.success : styles.error,
-                  ]}
-                >
-                  {output?.message || "Results will appear here..."}
-                </Text>
+              <View style={styles.buttonRow}>
+                <OperationButton
+                  title="Clear"
+                  icon="close-circle"
+                  onPress={handleClear}
+                />
+                <OperationButton
+                  title="Get Key"
+                  icon="key"
+                  onPress={handleGetKey}
+                />
+                <OperationButton
+                  title="Length"
+                  icon="list"
+                  onPress={handleGetLength}
+                />
               </View>
+            </View>
 
-              <View style={styles.section}>
-                <Text style={styles.sectionTitle}>
-                  Stored Items ({allItems.length})
-                </Text>
-                {allItems.length === 0 ? (
-                  <Text style={styles.emptyText}>No items stored yet.</Text>
-                ) : (
-                  allItems.map((item, index) => (
-                    <View key={index} style={styles.itemCard}>
-                      <Text style={styles.itemKey}>Key: {item.key}</Text>
-                      <Text style={styles.itemValue}>Value: {item.value}</Text>
-                    </View>
-                  ))
-                )}
+            <View style={styles.section}>
+              <Text style={styles.sectionTitle}>Enhanced Operations</Text>
+              <View style={styles.buttonRow}>
+                <OperationButton
+                  title="Multi Get"
+                  icon="download"
+                  onPress={handleMultiGet}
+                />
+                <OperationButton
+                  title="Get All Items"
+                  icon="archive"
+                  onPress={handleGetAllItems}
+                />
+                <OperationButton
+                  title="Multi Set"
+                  icon="cloud-upload"
+                  onPress={handleMultiSet}
+                />
               </View>
-            </ScrollView>
-          </LinearGradient>
-        </SafeAreaView>
-      </SafeAreaProvider>
+              <View style={styles.buttonRow}>
+                <OperationButton
+                  title="Merge Item"
+                  icon="git-merge"
+                  onPress={handleMergeItem}
+                />
+                <OperationButton
+                  title="Multi Merge"
+                  icon="git-network"
+                  fam="Ionicons"
+                  onPress={handleMultiMerge}
+                />
+                <OperationButton
+                  title="Multi Remove"
+                  icon="trash-bin"
+                  onPress={handleMultiRemove}
+                />
+              </View>
+              <OperationButton
+                title="Get All Keys"
+                icon="key-outline"
+                onPress={handleGetAllKeys}
+              />
+            </View>
+
+            <View style={styles.section}>
+              <Text style={styles.sectionTitle}>Output</Text>
+              <Text
+                style={[
+                  styles.output,
+                  output?.success ? styles.success : styles.error,
+                ]}
+              >
+                {output?.message || "Results will appear here..."}
+              </Text>
+            </View>
+
+            <View style={styles.section}>
+              <Text style={styles.sectionTitle}>
+                Stored Items ({allItems.length})
+              </Text>
+              {allItems.length === 0 ? (
+                <Text style={styles.emptyText}>No items stored yet.</Text>
+              ) : (
+                allItems.map((item, index) => (
+                  <View key={index} style={styles.itemCard}>
+                    <Text style={styles.itemKey}>Key: {item.key}</Text>
+                    <Text style={styles.itemValue}>Value: {item.value}</Text>
+                  </View>
+                ))
+              )}
+            </View>
+          </ScrollView>
+        </LinearGradient>
+      </SafeAreaView>
     </View>
   );
 }

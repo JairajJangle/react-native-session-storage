@@ -1,15 +1,16 @@
 {
-  "extends": "expo/tsconfig.base",
+  "extends": "../tsconfig",
   "compilerOptions": {
-    "strict": true,
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"],
-      "react-native-session-storage": ["../src"]
+      "react-native-session-storage": [
+        "../src/index"
+      ]
     }
   },
   "include": [
-    "**/*.ts",
-    "**/*.tsx",
+    "src/**/*",
+    "src/types/**/*",
     ".expo/types/**/*.ts",
     "expo-env.d.ts"
   ]

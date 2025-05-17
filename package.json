@@ -23,12 +23,12 @@
   ],
   "scripts": {
     "test": "jest",
-    "typescript": "tsc --noEmit",
+    "test:cov": "jest --coverage --maxWorkers=2 --coverageReporters=\"json-summary\" --coverageReporters=\"html\"",
+    "typecheck": "tsc --noEmit --skipLibCheck",
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
     "prepare": "bob build",
     "release": "release-it",
-    "example": "yarn --cwd example",
-    "bootstrap": "yarn example && yarn"
+    "example": "yarn workspace react-native-session-storage-example"
   },
   "keywords": [
     "react-native",
@@ -76,6 +76,7 @@
       "@commitlint/config-conventional"
     ]
   },
+  "packageManager": "yarn@3.6.1",
   "jest": {
     "modulePathIgnorePatterns": [
       "<rootDir>/example/node_modules",
@@ -131,6 +132,9 @@
       ]
     ]
   },
+  "workspaces": [
+    "example"
+  ],
   "funding": [
     {
       "type": "individual",

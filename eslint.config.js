@@ -70,7 +70,7 @@ module.exports = [
         ecmaFeatures: {
           jsx: true,
         },
-        project: "./tsconfig.json",
+        project: "./example/tsconfig.json",
       },
     },
     plugins: {
