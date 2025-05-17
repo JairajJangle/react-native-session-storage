@@ -1,4 +1,4 @@
-export class Storage<T = any> {
+export class Storage<T = unknown> {
   private data: Map<string, T>;
 
   constructor() {
@@ -26,8 +26,8 @@ export class Storage<T = any> {
    * @returns value if present else `undefined`
    */
   public getItem(key: string): T | undefined {
-    if (typeof key !== 'string') {
-      throw new TypeError('Key must be a string');
+    if (typeof key !== "string") {
+      throw new TypeError("Key must be a string");
     }
     return this.data.get(key);
   }
@@ -39,13 +39,13 @@ export class Storage<T = any> {
    */
   public multiGet(keys: string[]): Record<string, T | undefined> {
     if (!Array.isArray(keys)) {
-      throw new TypeError('Keys must be an array');
+      throw new TypeError("Keys must be an array");
     }
     const result: Record<string, T | undefined> = {};
 
     for (const key of keys) {
-      if (typeof key !== 'string') {
-        throw new TypeError('Each key must be a string');
+      if (typeof key !== "string") {
+        throw new TypeError("Each key must be a string");
       }
       result[key] = this.data.get(key);
     }
@@ -79,9 +79,9 @@ export class Storage<T = any> {
    * @param key The key to store the value under
    * @param value The value to store
    */
-  public setItem(key: string, value: T) {
-    if (typeof key !== 'string') {
-      throw new TypeError('Key must be a string');
+  public setItem(key: string, value: T): void {
+    if (typeof key !== "string") {
+      throw new TypeError("Key must be a string");
     }
     this.data.set(key, value);
   }
@@ -90,18 +90,18 @@ export class Storage<T = any> {
    * Store multiple key-value pairs
    * @param keyValuePairs Array of [key, value] pairs or object with key-value pairs
    */
-  public multiSet(keyValuePairs: [string, T][] | Record<string, T>) {
+  public multiSet(keyValuePairs: [string, T][] | Record<string, T>): void {
     if (Array.isArray(keyValuePairs)) {
       for (const [key, value] of keyValuePairs) {
-        if (typeof key !== 'string') {
-          throw new TypeError('Each key must be a string');
+        if (typeof key !== "string") {
+          throw new TypeError("Each key must be a string");
         }
         this.data.set(key, value);
       }
     } else {
       for (const key in keyValuePairs) {
-        if (typeof key !== 'string') {
-          throw new TypeError('Each key must be a string');
+        if (typeof key !== "string") {
+          throw new TypeError("Each key must be a string");
         }
         const value = keyValuePairs[key];
         if (value !== undefined) {
@@ -119,14 +119,14 @@ export class Storage<T = any> {
    */
   public mergeItem(
     key: string,
-    value: Record<string, any>
-  ): Record<string, any> | undefined {
-    if (typeof key !== 'string') {
-      throw new TypeError('Key must be a string');
+    value: Record<string, unknown>
+  ): Record<string, unknown> | undefined {
+    if (typeof key !== "string") {
+      throw new TypeError("Key must be a string");
     }
     const existing = this.data.get(key);
 
-    if (existing && typeof existing === 'object' && !Array.isArray(existing)) {
+    if (existing && typeof existing === "object" && !Array.isArray(existing)) {
       const merged = { ...existing, ...value };
       this.data.set(key, merged as T);
       return merged;
@@ -144,21 +144,23 @@ export class Storage<T = any> {
    * @returns Object with keys and their merged values
    */
   public multiMerge(
-    keyValuePairs: [string, Record<string, any>][] | Record<string, Record<string, any>>
-  ): Record<string, Record<string, any> | undefined> {
-    const results: Record<string, Record<string, any> | undefined> = {};
+    keyValuePairs:
+      | [string, Record<string, unknown>][]
+      | Record<string, Record<string, unknown>>
+  ): Record<string, Record<string, unknown> | undefined> {
+    const results: Record<string, Record<string, unknown> | undefined> = {};
 
     if (Array.isArray(keyValuePairs)) {
       for (const [key, value] of keyValuePairs) {
-        if (typeof key !== 'string') {
-          throw new TypeError('Each key must be a string');
+        if (typeof key !== "string") {
+          throw new TypeError("Each key must be a string");
         }
         results[key] = this.mergeItem(key, value);
       }
     } else {
       for (const key in keyValuePairs) {
-        if (typeof key !== 'string') {
-          throw new TypeError('Each key must be a string');
+        if (typeof key !== "string") {
+          throw new TypeError("Each key must be a string");
         }
         const value = keyValuePairs[key];
         if (value !== undefined) {
@@ -174,9 +176,9 @@ export class Storage<T = any> {
    * Removes value by key
    * @param key The key to remove
    */
-  public removeItem(key: string) {
-    if (typeof key !== 'string') {
-      throw new TypeError('Key must be a string');
+  public removeItem(key: string): void {
+    if (typeof key !== "string") {
+      throw new TypeError("Key must be a string");
     }
     this.data.delete(key);
   }
@@ -185,13 +187,13 @@ export class Storage<T = any> {
    * Remove multiple values by their keys
    * @param keys Array of keys to remove
    */
-  public multiRemove(keys: string[]) {
+  public multiRemove(keys: string[]): void {
     if (!Array.isArray(keys)) {
-      throw new TypeError('Keys must be an array');
+      throw new TypeError("Keys must be an array");
     }
     for (const key of keys) {
-      if (typeof key !== 'string') {
-        throw new TypeError('Each key must be a string');
+      if (typeof key !== "string") {
+        throw new TypeError("Each key must be a string");
       }
       this.data.delete(key);
     }
@@ -200,7 +202,7 @@ export class Storage<T = any> {
   /**
    * Clear all key-value pairs
    */
-  public clear() {
+  public clear(): void {
     this.data.clear();
   }
 
