@@ -6,9 +6,8 @@ Session Storage like module for React Native for session-bound storage.
 
 This module is **NOT** an alternative for *Async Storage* which is meant for persistent storage. Instead, this module provides a "volatile" session-bound storage which gets cleared when the app is re-opened.
 
-<div style="display: flex; justify-content: space-around; width: 320px; margin: 0 auto;">
-  <img src=".github/assets/demo_app_ss.png" alt="Example App Screenshot" style="border: 1px solid gray;" />
-</div>
+<img src=".github/assets/demo_app_ss.png" width="320" alt="Example App Screenshot">
+
 
 ## Installation
 
