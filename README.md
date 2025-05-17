@@ -2,11 +2,15 @@
 
 Session Storage like module for React Native for session-bound storage.
 
-[![npm version](https://img.shields.io/npm/v/react-native-session-storage)](https://badge.fury.io/js/react-native-session-storage) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/react-native-session-storage) [![License](https://img.shields.io/github/license/JairajJangle/react-native-session-storage)](https://github.com/JairajJangle/react-native-session-storage/blob/master/LICENSE) [![Workflow Status](https://github.com/JairajJangle/react-native-session-storage/actions/workflows/ci.yml/badge.svg)](https://github.com/JairajJangle/react-native-session-storage/actions/workflows/ci.yml) [![cov](https://raw.githubusercontent.com/JairajJangle/react-native-session-storage/gh-pages/badges/coverage.svg)](https://github.com/JairajJangle/react-native-session-storage/actions/workflows/ci.yml) ![Android](https://img.shields.io/badge/-Android-555555?logo=android&logoColor=3DDC84) ![iOS](https://img.shields.io/badge/-iOS-555555?logo=apple&logoColor=white) ![Web](https://img.shields.io/badge/-Web-555555?logo=google-chrome&logoColor=0096FF) [![GitHub issues](https://img.shields.io/github/issues/JairajJangle/react-native-session-storage)](https://github.com/JairajJangle/react-native-session-storage/issues?q=is%3Aopen+is%3Aissue) ![TS](https://img.shields.io/badge/TypeScript-strict_💪-blue)
+[![npm version](https://img.shields.io/npm/v/react-native-session-storage)](https://badge.fury.io/js/react-native-session-storage) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/react-native-session-storage) [![License](https://img.shields.io/github/license/JairajJangle/react-native-session-storage)](https://github.com/JairajJangle/react-native-session-storage/blob/master/LICENSE) [![Workflow Status](https://github.com/JairajJangle/react-native-session-storage/actions/workflows/ci.yml/badge.svg)](https://github.com/JairajJangle/react-native-session-storage/actions/workflows/ci.yml) [![cov](https://raw.githubusercontent.com/JairajJangle/react-native-session-storage/gh-pages/badges/coverage.svg)](https://github.com/JairajJangle/react-native-session-storage/actions/workflows/ci.yml) ![Android](https://img.shields.io/badge/-Android-555555?logo=android&logoColor=3DDC84) ![iOS](https://img.shields.io/badge/-iOS-555555?logo=apple&logoColor=white) ![Web](https://img.shields.io/badge/-Web-555555?logo=google-chrome&logoColor=0096FF) [![GitHub issues](https://img.shields.io/github/issues/JairajJangle/react-native-session-storage)](https://github.com/JairajJangle/react-native-session-storage/issues?q=is%3Aopen+is%3Aissue) ![TS](https://img.shields.io/badge/TypeScript-strict_💪-blue) [![Expo Snack](https://img.shields.io/badge/Expo%20Snack-555555?style=flat&logo=expo&logoColor=white)](https://snack.expo.dev/@futurejj/react-native-session-storage-example)
 
 This module is **NOT** an alternative for *Async Storage* which is meant for persistent storage. Instead, this module provides a "volatile" session-bound storage which gets cleared when the app is re-opened.
 
-<img src=".github/assets/demo_app_ss.png" width="320" alt="Example App Screenshot">
+<div align="center">
+  <a href="https://snack.expo.dev/@futurejj/react-native-session-storage-example">
+    <img src=".github/assets/demo_app_ss.png" width="320" alt="Example App Screenshot">
+  </a>
+</div>
 
 
 ## Installation
