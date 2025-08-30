@@ -1,3 +1,10 @@
+## [2.0.1](https://github.com/JairajJangle/react-native-session-storage/compare/v2.0.0...v2.0.1) (2025-05-17)
+
+
+### Bug Fixes
+
+* fixed broken expo snack link when clicked on ss ([dfd71a8](https://github.com/JairajJangle/react-native-session-storage/commit/dfd71a86c4d6ce775eea4d14a9bcec4fa91e4916))
+
 # [2.0.0](https://github.com/JairajJangle/react-native-session-storage/compare/v1.3.5...v2.0.0) (2025-05-17)
 
 
