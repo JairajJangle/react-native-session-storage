@@ -53,7 +53,7 @@ runs:
           ${{ runner.os }}-yarn-
 
     - name: Install dependencies
-      run: yarn install
+      run: yarn install --immutable
       shell: bash
 
     - name: Save Yarn Cache
