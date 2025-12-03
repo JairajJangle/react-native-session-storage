@@ -82,7 +82,7 @@
       "@commitlint/config-conventional"
     ]
   },
-  "packageManager": "yarn@3.6.1",
+  "packageManager": "yarn@4.9.2",
   "jest": {
     "modulePathIgnorePatterns": [
       "<rootDir>/example/node_modules",
