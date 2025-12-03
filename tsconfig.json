@@ -1,11 +1,6 @@
 {
   "include": ["src/**/*"],
-  "exclude": [
-    "node_modules", 
-    "src/**/*.test.*", 
-    "src/**/*.spec.*", 
-    "tests/**/*"
-  ],
+  "exclude": ["node_modules"],
   "compilerOptions": {
     "rootDir": "./",
     "allowUnreachableCode": false,
