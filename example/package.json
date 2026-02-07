@@ -9,23 +9,23 @@
     "web": "expo start --web"
   },
   "dependencies": {
-    "@expo/metro-runtime": "~5.0.4",
-    "babel-plugin-react-compiler": "^19.0.0-beta-af1b7da-20250417",
-    "expo": "^53.0.9",
-    "expo-linear-gradient": "~14.1.4",
+    "@expo/metro-runtime": "~5.0.5",
+    "babel-plugin-react-compiler": "^1.0.0",
+    "expo": "^53.0.26",
+    "expo-linear-gradient": "~14.1.5",
     "expo-status-bar": "~2.2.3",
     "react": "19.0.0",
-    "react-dom": "19.0.0",
-    "react-native": "0.79.5",
-    "react-native-safe-area-context": "^5.4.0",
-    "react-native-screens": "~4.10.0",
-    "react-native-web": "^0.20.0"
+    "react-dom": "19.2.4",
+    "react-native": "0.79.7",
+    "react-native-safe-area-context": "^5.6.2",
+    "react-native-screens": "~4.23.0",
+    "react-native-web": "^0.21.2"
   },
   "devDependencies": {
     "@babel/core": "^7.24.0",
-    "@types/react": "~19.0.10",
-    "react-native-builder-bob": "^0.40.10",
-    "typescript": "~5.8.3"
+    "@types/react": "~19.0.14",
+    "react-native-builder-bob": "^0.40.17",
+    "typescript": "~5.9.3"
   },
   "private": true
 }
