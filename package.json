@@ -1,6 +1,6 @@
 {
   "name": "react-native-session-storage",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Session Storage like module for React Native for session-bound storage.",
   "main": "lib/commonjs/index.js",
   "types": "lib/typescript/src/index.d.ts",
