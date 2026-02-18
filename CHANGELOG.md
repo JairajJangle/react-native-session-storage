@@ -1,3 +1,10 @@
+## [2.0.3](https://github.com/JairajJangle/react-native-session-storage/compare/v2.0.2...v2.0.3) (2026-02-18)
+
+
+### Bug Fixes
+
+* fixed incorrect package json config ([12ba814](https://github.com/JairajJangle/react-native-session-storage/commit/12ba814dd312faa353a25480a1a543f178ebc497))
+
 ## [2.0.2](https://github.com/JairajJangle/react-native-session-storage/compare/v2.0.1...v2.0.2) (2026-02-07)
 
 
