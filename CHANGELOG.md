@@ -1,3 +1,10 @@
+## [2.0.2](https://github.com/JairajJangle/react-native-session-storage/compare/v2.0.1...v2.0.2) (2026-02-07)
+
+
+### Bug Fixes
+
+* maintenance - dev deps upgraded ([5b2ebbd](https://github.com/JairajJangle/react-native-session-storage/commit/5b2ebbd35143a20d892a699729cf1570286c09c7))
+
 ## [2.0.1](https://github.com/JairajJangle/react-native-session-storage/compare/v2.0.0...v2.0.1) (2025-05-17)
 
 
