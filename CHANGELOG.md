@@ -1,3 +1,10 @@
+## [2.0.5](https://github.com/JairajJangle/react-native-session-storage/compare/v2.0.4...v2.0.5) (2026-08-18)
+
+
+### Bug Fixes
+
+* **deps:** resolve dependabot security alerts ([56f6a2c](https://github.com/JairajJangle/react-native-session-storage/commit/56f6a2c627022089e0209101104488ece58f3834))
+
 ## [2.0.4](https://github.com/JairajJangle/react-native-session-storage/compare/v2.0.3...v2.0.4) (2026-04-04)
 
 ## [2.0.3](https://github.com/JairajJangle/react-native-session-storage/compare/v2.0.2...v2.0.3) (2026-02-18)
