@@ -1,3 +1,10 @@
+## [2.0.6](https://github.com/JairajJangle/react-native-session-storage/compare/v2.0.5...v2.0.6) (2026-09-06)
+
+
+### Bug Fixes
+
+* **deps:** bump @xmldom/xmldom and fast-uri via lockfile refresh ([c35ead4](https://github.com/JairajJangle/react-native-session-storage/commit/c35ead4afe6b8eac9c39f48a9a730b51728ce056))
+
 ## [2.0.5](https://github.com/JairajJangle/react-native-session-storage/compare/v2.0.4...v2.0.5) (2026-08-18)
 
 
