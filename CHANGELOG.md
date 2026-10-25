@@ -1,5 +1,9 @@
 ## [2.0.7](https://github.com/JairajJangle/react-native-session-storage/compare/v2.0.6...v2.0.7) (2026-10-25)
 
+### Miscellaneous Chores
+
+* **deps:** patch dependabot security alerts via lockfile refresh ([032b6b3](https://github.com/JairajJangle/react-native-session-storage/commit/032b6b36d3efe7b9b8d1fa836a04d7790dc61363))
+
 ## [2.0.6](https://github.com/JairajJangle/react-native-session-storage/compare/v2.0.5...v2.0.6) (2026-09-06)
 
 
