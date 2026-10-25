@@ -1,3 +1,5 @@
+## [2.0.7](https://github.com/JairajJangle/react-native-session-storage/compare/v2.0.6...v2.0.7) (2026-10-25)
+
 ## [2.0.6](https://github.com/JairajJangle/react-native-session-storage/compare/v2.0.5...v2.0.6) (2026-09-06)
 
 
